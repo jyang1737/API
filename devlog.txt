@@ -1,0 +1,3 @@
+December 5th:
+  11:00:
+   Stiven completed a draft of the main html page, including the navbar and form. 
