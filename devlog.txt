@@ -1,3 +1,5 @@
-December 5th:
-  11:00:
-   Stiven completed a draft of the main html page, including the navbar and form. 
+stivenP -- 2016-12-05 11:00 
+    Completed a draft of the main html page, including the navbar and form
+
+yangJ -- 2016-12-06 2:29
+    Added basic paths to app.py
