@@ -7,6 +7,10 @@ yangJ -- 2016-12-06 14:29
 chengN -- 2016-12-06 14:31
     Added musixmatch.py file
     Created API key
+    
+peterS -- 2016-12-06 15:30 
+	-added about.html 
+	-added navbar.html
 
 bertfieldM -- 2016-12-07 01:33
 	   added upload.py file. Need to do some research into post requests as right now it only returns information if a url to an image is given and not a local one. On the brightside, upload.getlist(path) now returns a list of tags about the image located at the url specified by path
@@ -19,3 +23,7 @@ chengN -- 2016-12-07 02:30
 chengN -- 2016-12-07 14:43
     Fixed api bug (thanks max)
     Rewrote url template for tags
+
+
+peterS -- 2016-12-07 2:30 
+	-created jinja templates
