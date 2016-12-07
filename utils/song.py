@@ -5,6 +5,7 @@ import json
 import urllib2
 
 
+url="http://api.musixmatch.com/ws/1.1/tracking.url.get?apikey=5f423b7772a80f77438407c8b78ff305&format=json"
 
 #class urllib2.Request(url[, data][, headers][, origin_req_host][, unverifiable])
 
@@ -33,20 +34,16 @@ the_page = response.read()
 print the_page
 '''
 
-
 # get lyrics after search is done
 #track.lyrics.get?track_id=15953433
 
 # parse json
 #https://docs.python.org/2/library/json.html
 def get_lyrics():
-	url = genURL(x, y)
-	curr = urllib2.urlopen(url)
-	req = curr.read()
-	reqdict = json.loads(req)
-	retdict = {}
-	retdict["icon"] = getIcon(x, y, offset, reqdict)
-
+    urllib2.urlopen(url).read()
+    d1 = json.loads(req)
+    d2 = {}
+    # insert tag stuff
 
 #<img src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuXW">
 #script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"
