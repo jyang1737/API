@@ -7,3 +7,5 @@ yangJ -- 2016-12-06 14:29
 chengN -- 2016-12-06 14:31
     Added musixmatch.py file
     Created API key
+bertfieldM -- 2016-12-7 01:33
+	   added upload.py file. Need to do some research into post requests as right now it only returns information if a url to an image is given and not a local one. On the brightside, upload.getlist(path) now returns a list of tags about the image located at the url specified by path
