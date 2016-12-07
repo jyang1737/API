@@ -16,4 +16,6 @@ chengN -- 2016-12-07 02:30
     Authorization errors when requests made -- big buggy :(
     List of things that need to be installed can be found in README file
 
-
+yangJ -- 2016-12-07 14:45
+    Helped Stiven with some html/jinja stuff
+    Added temporary functions in app.py
