@@ -1,81 +1,59 @@
-<!DOCTYPE html>
-<html lang = "en">
-  <head> 
-    <meta charset= "utf-8">
-    <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
-    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
-    <title>Live Song and Prospel</title>
-    <link href="../static/bootstrap.min.css" rel="stylesheet">
-    <script src="../static/jquery.min.js"></script>
-    <script src="../static/bootstrap.min.js"></script>    
-  </head>
-  <body style="background-color:lightsteelblue">
-  <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation" aria-expanded="false">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"> 
-			<img  style= "margin-top: -4px" class="img-circle"  width="30" height="30" alt="CHSM" src="icon.jpg">
-      	</a>
+{% extends "navbar.html" %} 
+{% block navselect %}
+<div class="collapse navbar-collapse" id="navigation">
+  <ul class="nav navbar-nav">
+    <li> 
+      <a href="/"> Home</a> 
+    </li>
+    <li class = "active"> 
+      <a href = "/about/"> About </a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+<div class="container">
+  <div class="col-lg-12">
+    <h1 class="page-header"> About Us
+      <small> Welcome! </small>
+    </h1>
+    <p> Live Song and Prosper is an innovative program that links your favorite images with catchy tunes and lyrics! </p>
+  </div>
+</div>
+<div class="row"> 
+  <div class="col-lg-12">
+    <h2 class="page-header"> Our Team/CHSM </h2>
+    <div class="col-lg-4 col-sm-6 text center">
+      <img class="img-circle img-responsive img-center" src="../static/nicole.jpg" alt="" width="300" height="300">
+      <h3> Nicole Chenge 
+        <small>Development</small>
+      </h3>
+      <p> Nicole Cheng Puts the C in CHSM </p>
     </div>
-    <div class="collapse navbar-collapse" id="navigation">
-    	<ul class="nav navbar-nav">
-    	<li> 
-    		<a href="main.html"> Home</a> 
-    	</li>
-    	<li class = "active"> 
-    		<a href = "templates/about.html"> About </a>
-    	</li>
-    	</ul>x
+    <div class="col-lg-4 col-sm-6 text center">
+      <img class="img-circle img-responsive img-center" src="../static/james.jpg" alt="" width="300" height="300">
+      <h3> James Yang
+        <small>Project Manager</small>
+      </h3>
+      <p> James Yang Puts the H in CHSM </p>
     </div>
+    <div class="col-lg-4 col-sm-6 text center">
+      <img class="img-circle img-responsive img-center" src="../static/stiven.jpg" alt="" width="300" height="300">
+      <h3> Stiven Peter
+        <small>Front End</small>
+      </h3>
+      <p> Stiven Peter Puts the S in CHSM </p>
     </div>
-    </nav>
-    <div class="container">
-      <div class="col-lg-12">
-        <h1 class="page-header"> About Us
-          <small> Welcome! </small>
-        </h1>
-        <p> Live Song and Prosper is an innovative program that links your favorite images with catchy tunes and lyrics! </p>
-        </div>
-        </div>
-        <div class="row"> 
-        <div class="col-lg-12">
-          <h2 class="page-header"> Our Team/CHSM </h2>
-          <div class="col-lg-4 col-sm-6 text center">
-          <img class="img-circle img-responsive img-center" src="../static/nicole.jpg" alt="" width="300" height="300">
-          <h3> Nicole Chenge 
-            <small>Development</small>
-          </h3>
-          <p> Nicole Cheng Puts the C in CHSM </p>
-          </div>
-          <div class="col-lg-4 col-sm-6 text center">
-          <img class="img-circle img-responsive img-center" src="../static/james.jpg" alt="" width="300" height="300">
-          <h3> James Yang
-            <small>Project Manager</small>
-          </h3>
-          <p> James Yang Puts the H in CHSM </p>
-          </div>
-          <div class="col-lg-4 col-sm-6 text center">
-          <img class="img-circle img-responsive img-center" src="../static/stiven.jpg" alt="" width="300" height="300">
-          <h3> Stiven Peter
-            <small>Front End</small>
-          </h3>
-          <p> Stiven Peter Puts the S in CHSM </p>
-          </div>
-          <div class="col-lg-4 col-sm-6 text center">
-          <img class="img-circle img-responsive img-center" src="../static/max.jpg" alt="" width="300" height="300">
-          <h3> Max Bertfield
-            <small>Development</small>
-          </h3>
-          <p> Max Bertfield Puts the M in CHSM </p>
-          </div>
-          </div>
-          </div>
+    <div class="col-lg-4 col-sm-6 text center">
+      <img class="img-circle img-responsive img-center" src="../static/max.jpg" alt="" width="300" height="300">
+      <h3> Max Bertfield
+        <small>Development</small>
+      </h3>
+      <p> Max Bertfield Puts the M in CHSM </p>
+    </div>
+  </div>
+</div>
 </body>
-    </html>
-   
+</html>
+
 
