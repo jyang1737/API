@@ -7,3 +7,8 @@ yangJ -- 2016-12-06 14:29
 chengN -- 2016-12-06 14:31
     Added musixmatch.py file
     Created API key
+
+chengN -- 2016-12-07 02:30
+    Modified musixmatch.py to include requests
+    Authorization errors when requests made -- big buggy :(
+    List of things that need to be installed can be found in README file
