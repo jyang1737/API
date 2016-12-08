@@ -7,7 +7,7 @@
 # @copy 2016 Musixmatch Spa
 
 
-import six
+#import six
 import urllib2
 import urllib3,urllib
 apikey="5e77a0cfadb9f7b386968d9150c3d0f2"
