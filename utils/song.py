@@ -29,7 +29,7 @@ def get_id(query):
     p = urllib2.urlopen(request(query)).read()
     d1 = json.loads(p)
     n = 0 # song number in list of matches
-    d2 = d1['message']['body']['track_list'][n]['track']
+    d2 = d1['message']['body']['track_list'][n-1]['track']
     name = d2['track_name']
     id = d2['track_id']
     return [id,name]
