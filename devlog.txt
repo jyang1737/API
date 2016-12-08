@@ -46,3 +46,4 @@ chengN -- 2016-12-08 00:30
     lyrics(L) done
         takes a list of key words
         returns a string of lyrics of a song with one or more of the key words
+    ** note to self: do checks for empty matches
