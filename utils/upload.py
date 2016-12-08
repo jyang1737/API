@@ -27,8 +27,14 @@ def getlistlocal(path):
     return q
 
 def getkey():
+    f = open('../secretdata.txt', 'r')
+    lines = f.readlines()
+    iid = lines[0].strip('\n')
+   
+    secret = lines[1].strip('\n')
+   
     url = "https://api.clarifai.com/v1/token"
-    data = urllib.urlencode({"client_id":"GX_1FH8Q7PkZxDcrkTzZ_yCfK-ArAC5wfTgGNUHV", 'client_secret':'jI4F23y0OxOXGg9NQ41-QJJt7xgWUEN2JB93lvNm', "grant_type":"client_credentials"})
+    data = urllib.urlencode({"client_id":iid, 'client_secret':secret, "grant_type":"client_credentials"})
     request = urllib2.Request(url,data)
     response = urllib2.urlopen(request)
     r = response.read()
