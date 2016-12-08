@@ -31,3 +31,5 @@ yangJ -- 2016-12-07 14:40
 chengN -- 2016-12-07 14:43
     Fixed api bug (thanks max)
     Rewrote url template for tags
+peterS -- 2016-12-07 21:00
+    Added results.html page
