@@ -3,7 +3,11 @@ import json, urllib2, urllib, os, mimetypes, tempfile, httplib
 def getlist(path):
     key = getkey()
     url = "https://api.clarifai.com/v1/tag/?url="+path+"&access_token="+key
-    u = urllib2.urlopen(url)
+    data = {"url":path}
+    values = urllib.urlencode(data)
+    headers = {"Authorization" : "Bearer " + key}
+    request = urllib2.Request(url,values,headers = headers)
+    u = urllib2.urlopen(request)
     r = u.read()
     d = json.loads(r)
     return d['results'][0]['result']['tag']['classes']
@@ -11,13 +15,16 @@ def getlist(path):
 def getlistlocal(path):
     key = getkey()
     url = "https://api.clarifai.com/v1/tag/"
-    content
-    register_openers()
-    datagen, headers = multipart_encode({"encoded_data": open(path)})
-    request = urllib2.Request(url, datagen, headers)
-    request.add_header('Authorization','Bearer' + key)
-    r = urllib2.urlopen(request).read()
-    return r
+    values={'encoded_data' :"@"+path}
+    datagen = urllib.urlencode(values)
+    headers = {'Authorization' : 'Bearer ' + key}
+    # contnet
+    # register_openers()
+    # datagen, headers = multipart_encode({"encoded_data": open(path)})
+    request = urllib2.Request(url, datagen, headers=headers)
+    r = urllib2.urlopen(request)
+    q = r.read()
+    return q
 
 def getkey():
     url = "https://api.clarifai.com/v1/token"
