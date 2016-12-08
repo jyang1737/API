@@ -38,6 +38,7 @@ peterS -- 2016-12-07 21:00
 peterS -- 2016-12-07 23:30
     Added form_v2.html
 
+
 chengN -- 2016-12-08 00:03
     Removed extraneous files
     Finished code to access and parse json
@@ -47,3 +48,10 @@ chengN -- 2016-12-08 00:30
         takes a list of key words
         returns a string of lyrics of a song with one or more of the key words
     ** note to self: do checks for empty matches
+
+yangJ -- 2016-12-08 00:30
+      - Fixed some variables in html files
+      - primitive version of website working
+      - Takes image url for now, will attempt to change later on
+BertfieldM -- 2015-12-8 00:43
+	The POST request is not workign yet, but i hva ewritten a bunch of functions so that it is almsot there. Need post for local images.

@@ -16,7 +16,7 @@ def s():
     image = search["url"]
     keywords = upload.getlist(image)
     lyrics = song.lyrics(keywords)
-    return render_template("result.html", tags=keywords)
+    return render_template("result.html", tags=keywords, songlyrics=lyrics)
 
 @app.route("/about/")
 def about():

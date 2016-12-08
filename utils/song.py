@@ -28,7 +28,7 @@ def get_id(query):
     #p = urllib2.urlopen(request("music%20hack%20day")).read()
     p = urllib2.urlopen(request(query)).read()
     d1 = json.loads(p)
-    n = 1 # song number in list of matches
+    n = 0 # song number in list of matches
     d2 = d1['message']['body']['track_list'][n]['track']
     name = d2['track_name']
     id = d2['track_id']
