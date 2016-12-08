@@ -16,7 +16,9 @@ def s():
     image = search["url"]
     keywords = upload.getlist(image)
     lyrics = song.lyrics(keywords)
-    return render_template("result.html", tags=keywords, songlyrics=lyrics)
+    colora= upload.getlistcolors(image)[0]
+    colorb = upload.getlistcolors(image)[1]
+    return render_template("result.html", tags=keywords, songlyrics=lyrics, back_color=colora, song_color=colorb)
 
 @app.route("/about/")
 def about():
