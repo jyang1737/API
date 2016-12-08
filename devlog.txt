@@ -31,3 +31,19 @@ yangJ -- 2016-12-07 14:40
 chengN -- 2016-12-07 14:43
     Fixed api bug (thanks max)
     Rewrote url template for tags
+
+peterS -- 2016-12-07 21:00
+    Added results.html page
+
+peterS -- 2016-12-07 23:30
+    Added form_v2.html
+
+chengN -- 2016-12-08 00:03
+    Removed extraneous files
+    Finished code to access and parse json
+
+chengN -- 2016-12-08 00:30
+    lyrics(L) done
+        takes a list of key words
+        returns a string of lyrics of a song with one or more of the key words
+    ** note to self: do checks for empty matches

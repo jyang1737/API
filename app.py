@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect
 
+from utils import song, upload
+
 app = Flask(__name__)
 app.secret_key = 'ajfkdsjflkasd'
 
@@ -9,15 +11,12 @@ def main():
     return render_template("main.html")
 
 @app.route("/s/", methods=["POST"])
-def query():
-    response = request.form
-    image = response["img"]
-    return render_template("navbar.html")
-
-@app.route("/s/<song>")
-def song(song):
-    return render_template("main.html")
-
+def s():
+    search = request.form
+    image = search["url"]
+    keywords = upload.getlist(image)
+    lyrics = song.lyrics(keywords)
+    return render_template("result.html", tags=keywords)
 
 @app.route("/about/")
 def about():
