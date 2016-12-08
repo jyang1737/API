@@ -57,3 +57,9 @@ BertfieldM -- 2015-12-8 00:43
 	The POST request is not workign yet, but i hva ewritten a bunch of functions so that it is almsot there. Need post for local images.
 BertfieldM --2016-12-8 14:30
 	made it take secret key from a file called secretsdata.txt copy that file then once everyone has delete it from the repo. The file goes int he root directory
+
+peterS -- 2016-12-08 14:30
+     -Fixed navbar issue. 
+     -Reformatted results.html 
+     
+     
