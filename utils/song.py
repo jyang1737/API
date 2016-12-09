@@ -14,7 +14,7 @@ url="http://api.musixmatch.com/ws/1.1/track.search?apikey="+api()+"&format=json"
 def request(k):
     return urllib2.Request(url+'&q_lyrics='+k+'&f_has_lyrics=1')
 
-L = ['christmas','hack','day']
+#L = ['christmas','hack','day']
 def query(L):
     #if(len(L)>4):
     #    L = L[0:4]
@@ -47,7 +47,7 @@ def get_id(query):
     id = d2['track_id']
     artist = d2['artist_name']
     coverart = d2['album_coverart_100x100']
-    print name+str(id)+artist+coverart+str(rating)
+    #print name+str(id)+artist+coverart+str(rating)
     return [id,name,artist,coverart]
     #return name
 #print get_id(query(L))
@@ -81,7 +81,7 @@ def lyrics(L):
         song=get_id(query(L))
         m = song[1]+"\n\n"+get_lyrics(song[0])
         return m
-print lyrics(L)
+#print lyrics(L)
 
 #https://developer.musixmatch.com/documentation/rights-clearance-on-your-existing-catalog
 #https://developer.musixmatch.com/documentation/api-reference/tracking-url-get
