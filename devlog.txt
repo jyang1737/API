@@ -63,3 +63,7 @@ peterS -- 2016-12-08 14:30
      -Reformatted results.html 
      
      
+peterS -- 2016-12-08 24:30
+     -Added panel to results
+     -Added color change functionality to results.html
+     -Added font change functionality to results.html
