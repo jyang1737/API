@@ -9,18 +9,20 @@ nicoleC -- 2016-12-06 14:31
     Created API key
     
 stivenP -- 2016-12-06 15:30 
-	-added about.html 
-	-added navbar.html
+    added about.html 
+    added navbar.html
 
 maxB -- 2016-12-07 01:33
-	   added upload.py file. Need to do some research into post requests as right now it only returns information if a url to an image is given and not a local one. On the brightside, upload.getlist(path) now returns a list of tags about the image located at the url specified by path
+    added upload.py file
+    Need to do some research into post requests as right now it only returns information if a url to an image is given and not a local one.
+    On the brightside, upload.getlist(path) now returns a list of tags about the image located at the url specified by path
 
 nicoleC -- 2016-12-07 02:30
     Modified song.py to include requests
     Authorization errors when requests made -- big buggy :(
 
 stivenP -- 2016-12-07 14:30 
-	-created jinja templates
+    created jinja templates
 
 jamesY -- 2016-12-07 14:40
     Helped Stiven with some html/jinja stuff
@@ -47,27 +49,27 @@ nicoleC -- 2016-12-08 00:30
     ** note to self: do checks for empty matches
 
 jamesY -- 2016-12-08 00:30
-      - Fixed some variables in html files
-      - primitive version of website working
-      - Takes image url for now, will attempt to change later on
+    Fixed some variables in html files
+    Primitive version of website working
+    Takes image url for now, will attempt to change later on
 
 maxB -- 2015-12-8 00:43
-	The POST request is not workign yet, but i hva ewritten a bunch of functions so that it is almsot there. Need post for local images.
+    The POST request is not working yet, but i have written a bunch of functions so that it is almost there. Need post for local images.
 
 maxB --2016-12-8 14:30
-	made it take secret key from a file called secretdata.txt copy that file then once everyone has delete it from the repo. The file goes int he root directory
+    made it take secret key from a file called secretdata.txt copy that file then once everyone has delete it from the repo. The file goes in the root directory
 
 stivenP -- 2016-12-08 14:30
-     -Fixed navbar issue. 
-     -Reformatted results.html 
+    Fixed navbar issue. 
+    Reformatted results.html 
           
 stivenP -- 2016-12-08 24:30
-     -Added panel to results
-     -Added color change functionality to results.html
-     -Added font change functionality to results.html
+    Added panel to results
+    Added color change functionality to results.html
+    Added font change functionality to results.html
 
 maxB -- 2016-12-09 00:40
--added get color functionality and fixed some minor bugs
+    added get color functionality and fixed some minor bugs
 
 nicoleC -- 2016-12-09 01:26
     utilized secretdata for apikey
@@ -76,4 +78,7 @@ nicoleC -- 2016-12-09 01:26
     changed lyrics(L) to return a list of [title, artist, lyrics, coverart]
         side note: most songs do not have coverart :(
     added checks for empty lists and values
-    ** check for 'no person'
+
+nicoleC -- 2016-12-09 14:45
+    check for 'no person' -- done
+    
