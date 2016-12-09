@@ -1,4 +1,8 @@
 {% extends "navbar.html" %} 
+{% block back_color %}
+ <body style= 'background-color: {{back_color}} '>
+{% endblock %}
+
 {% block body %} 
 <div class="container">
   <div class="col-lg-12">
@@ -6,10 +10,10 @@
     <p> Live Song and Prosper has determined that your picture corresponds to the words: {{ tags }}.</p>
   </div> 
 </div> 
-<div class="row"> 
-  <div class="col-lg-12">
-    <h2 class="page-header"> {{ songname }}</h2>
-    <div class="container" align="center">
+<div class="container"> 
+<div class="panel panel-default" style= 'background-color: {{song_color}} '>
+    <div class="panel-heading" align="center">  {{ songname }}</div>
+    <div class="panel-body">
       {{ songlyrics }}
     </div> 
   </div> 
