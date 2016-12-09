@@ -1,4 +1,4 @@
-{% extends "navbar.html" %} 
+{% extends "navbar.html" %}
 {% block back_color %}
  <body style= 'background-color: {{back_color}} '>
 {% endblock %}
@@ -14,7 +14,9 @@
 <div class="panel panel-default" style= 'background-color: {{song_color}} '>
     <div class="panel-heading" align="center">  {{ songname }}</div>
     <div class="panel-body">
-         <p style="mix-blend-mode: darken">
+         <p style = "color: {{ song_color }};
+    -webkit-filter: invert(100%);
+    filter: invert(100%);">
       {{ songlyrics }}
       </p>
     </div> 
