@@ -2,6 +2,7 @@
 
 import json, urllib, urllib2
 
+
 def api():
     file = open("secretdata.txt",'r')
     m = file.readline()
@@ -27,6 +28,8 @@ def query(L):
     #    n += 1
     #return s
     if (len(L)>0):
+        if(L[0]=="no person"):
+            return L[1]
         return L[0]
     else:
         return False
@@ -53,7 +56,6 @@ def get_id(query):
 #print get_id(query(L))
 
 # get lyrics after search is done
-#track.lyrics.get?track_id=15953433
 def get_lyrics(id):
     u = "http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey="+api()
     r = urllib2.Request(u+'&track_id='+str(id))#,data=None)
@@ -62,26 +64,27 @@ def get_lyrics(id):
     d = d['message']['body']['lyrics']
     return d['lyrics_body']
 
-# returns a string of lyrics for 30% of the matched song
-'''
+# returns song lyrics
 def lyrics(L):
     if(query(L)==False):
         return "A song could not be found."
     else:
-        song=get_id(query(L))
-        m = song[1]+"\n\n"+get_lyrics(song[0])
-        return m
-'''
-
-# returns a list of matched song attributes [title, artist, lyrics, coverart]
-def lyrics(L):
-    if(query(L)==False):
-        return "A song could not be found."
-    else:
-        song=get_id(query(L))
-        m = song[1]+"\n\n"+get_lyrics(song[0])
+        song = get_id(query(L))
+        m = get_lyrics(song[0])
         return m
 #print lyrics(L)
+
+# returns song artist
+def get_artist(L):
+    song = get_id(query(L))
+    m = song[2]
+    return m
+
+# returns song title
+def get_title(L):
+    song = get_id(query(L))
+    m = song[1]
+    return m
 
 #https://developer.musixmatch.com/documentation/rights-clearance-on-your-existing-catalog
 #https://developer.musixmatch.com/documentation/api-reference/tracking-url-get
