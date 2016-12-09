@@ -1,4 +1,4 @@
-import json, urllib2, urllib, os, mimetypes, tempfile, httplib
+import json, urllib2, urllib, os, mimetypes, tempfile, httplib, formdata
 
 def getlist(path):
     key = getkey()
@@ -24,16 +24,19 @@ def getlistcolors(path):
     d = json.loads(r)
     return [d['results'][0]['colors'][0]['w3c']['hex'], d['results'][0]['colors'][1]['w3c']['hex']]
 
-def getlistlocal(path):
+def getlistlocal(path,filename):
     key = getkey()
     url = "https://api.clarifai.com/v1/tag/"
-    values={'encoded_data' :"@"+path}
-    datagen = urllib.urlencode(values)
-    headers = {'Authorization' : 'Bearer ' + key}
+    fields = {}
+    f = open(path,'r')
+    f2 = f.read()
+    files= {'encoded_data':{'filename': filename, 'content' :f2}}
+    print files
+    data, headers = formdata.encode_multipart(fields,files)
     # contnet
     # register_openers()
-    # datagen, headers = multipart_encode({"encoded_data": open(path)})
-    request = urllib2.Request(url, datagen, headers=headers)
+    request = urllib2.Request(url, data=data, headers=headers)
+    request.add_header('Authorization','Bearer ' + key)
     r = urllib2.urlopen(request)
     q = r.read()
     return q
@@ -51,38 +54,3 @@ def getkey():
     d = json.loads(r)
     return d['access_token']
 
-
-def post_multipart(host, selector, fields, files):
-    content_type, body = encode_multipart_formdata(fields, files)
-    h = httplib.HTTP(host)
-    h.putrequest('POST', selector)
-    h.putheader('content-type', content_type)
-    h.putheader('content-length', str(len(body)))
-    h.endheaders()
-    h.send(body)
-    errcode, errmsg, headers = h.getreply()
-    return h.file.read()
-
-def encode_multipart_formdata(fields, files):
-    LIMIT = '----------lImIt_of_THE_fIle_eW_$'
-    CRLF = '\r\n'
-    L = []
-    for (key, value) in fields:
-        L.append('--' + LIMIT)
-        L.append('Content-Disposition: form-data; name="%s"' % key)
-        L.append('')
-        L.append(value)
-    for (key, filename, value) in files:
-        L.append('--' + LIMIT)
-        L.append('Content-Disposition: form-data; name="%s"; filename="%s"' % (key, filename))
-        L.append('Content-Type: %s' % get_content_type(filename))
-        L.append('')
-        L.append(value)
-    L.append('--' + LIMIT + '--')
-    L.append('')
-    body = CRLF.join(L)
-    content_type = 'multipart/form-data; boundary=%s' % LIMIT
-    return content_type, body
-
-def get_content_type(filename):
-    return mimetypes.guess_type(filename)[0] or 'application/octet-stream'
