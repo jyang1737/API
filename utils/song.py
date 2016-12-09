@@ -3,7 +3,7 @@
 import json, urllib, urllib2
 
 def api():
-    file = open("../secretdata.txt",'r')
+    file = open("secretdata.txt",'r')
     m = file.readline()
     m = file.readline()
     m = file.readline()

@@ -12,10 +12,10 @@
 </div> 
 <div class="container"> 
 <div class="panel panel-default" style= 'background-color: {{song_color}} '>
-    <div class="panel-heading" align="center">  {{ songname }}</div>
+    <div class="panel-heading" align="center">  {{ songname }} by {{ songartist }}</div>
     <div class="panel-body">
-         <p style="mix-blend-mode: darken">
-      {{ songlyrics }}
+      <p style="mix-blend-mode: difference">
+	<pre> {{ songlyrics }} </pre>
       </p>
     </div> 
   </div> 
