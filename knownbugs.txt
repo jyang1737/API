@@ -1,3 +1,4 @@
 - if the input isnt a url, the app crashes, we should sanatize that
 -home on the sults page links to /main insted of /
 - some urls just don't work, I think its something in song.py but I can't reliably reporduce this
+d2 = d1['message']['body']['track_list'][n]['track'] List index out of range is the error, but i dont know what in song.py could be causuing this
