@@ -80,7 +80,8 @@ nicoleC -- 2016-12-09 01:26
     added checks for empty lists and values
 
 nicoleC -- 2016-12-09 14:45
-    check for 'no person' -- done
+    list check for 'no person' tag
+    get_artist(L), get_title(L), cleaned up song.py
     
 yangJ -- 2016-12-09 14:51
     Webpage organization
