@@ -22,7 +22,7 @@ def getlistcolors(path):
     u = urllib2.urlopen(request)
     r = u.read()
     d = json.loads(r)
-    return {d['results'][0]['colors'][0]['w3c']['hex'], d['results'][0]['colors'][2]['w3c']['hex']}
+    return [d['results'][0]['colors'][0]['w3c']['hex'], d['results'][0]['colors'][2]['w3c']['hex']]
 
 def getlistlocal(path):
     key = getkey()
@@ -39,7 +39,7 @@ def getlistlocal(path):
     return q
 
 def getkey():
-    f = open('../secretdata.txt', 'r')
+    f = open('secretdata.txt', 'r')
     lines = f.readlines()
     iid = lines[0].strip('\n')
     secret = lines[1].strip('\n')
