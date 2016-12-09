@@ -67,3 +67,5 @@ peterS -- 2016-12-08 24:30
      -Added panel to results
      -Added color change functionality to results.html
      -Added font change functionality to results.html
+BertfieldM -- 2016-12-9 00:40
+-added get color functionality and fixed some minor bugs
