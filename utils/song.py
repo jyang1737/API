@@ -9,7 +9,7 @@ def api():
     m = file.readline()
     m = file.readline()
     return m[0:-1]
-#print api()
+
 url="http://api.musixmatch.com/ws/1.1/track.search?apikey="+api()+"&format=json"
 
 def request(k):
