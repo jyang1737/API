@@ -1,79 +1,79 @@
-peterS -- 2016-12-05 11:00 
+stivenP -- 2016-12-05 11:00 
     Completed a draft of the main html page, including the navbar and form
 
-yangJ -- 2016-12-06 14:29
+jamesY -- 2016-12-06 14:29
     Added basic paths to app.py
 
-chengN -- 2016-12-06 14:31
+nicoleC -- 2016-12-06 14:31
     Added musixmatch.py file
     Created API key
     
-peterS -- 2016-12-06 15:30 
+stivenP -- 2016-12-06 15:30 
 	-added about.html 
 	-added navbar.html
 
-bertfieldM -- 2016-12-07 01:33
+maxB -- 2016-12-07 01:33
 	   added upload.py file. Need to do some research into post requests as right now it only returns information if a url to an image is given and not a local one. On the brightside, upload.getlist(path) now returns a list of tags about the image located at the url specified by path
 
-chengN -- 2016-12-07 02:30
+nicoleC -- 2016-12-07 02:30
     Modified song.py to include requests
     Authorization errors when requests made -- big buggy :(
 
-peterS -- 2016-12-07 14:30 
+stivenP -- 2016-12-07 14:30 
 	-created jinja templates
 
-yangJ -- 2016-12-07 14:40
+jamesY -- 2016-12-07 14:40
     Helped Stiven with some html/jinja stuff
     Added temporary functions in app.py
 
-chengN -- 2016-12-07 14:43
+nicoleC -- 2016-12-07 14:43
     Fixed api bug (thanks max)
     Rewrote url template for tags
 
-peterS -- 2016-12-07 21:00
+stivenP -- 2016-12-07 21:00
     Added results.html page
 
-peterS -- 2016-12-07 23:30
+stivenP -- 2016-12-07 23:30
     Added form_v2.html
 
-
-chengN -- 2016-12-08 00:03
+nicoleC -- 2016-12-08 00:03
     Removed extraneous files
     Finished code to access and parse json
 
-chengN -- 2016-12-08 00:30
+nicoleC -- 2016-12-08 00:30
     lyrics(L) done
         takes a list of key words
         returns a string of lyrics of a song with one or more of the key words
     ** note to self: do checks for empty matches
 
-yangJ -- 2016-12-08 00:30
+jamesY -- 2016-12-08 00:30
       - Fixed some variables in html files
       - primitive version of website working
       - Takes image url for now, will attempt to change later on
 
-BertfieldM -- 2015-12-8 00:43
+maxB -- 2015-12-8 00:43
 	The POST request is not workign yet, but i hva ewritten a bunch of functions so that it is almsot there. Need post for local images.
 
-BertfieldM --2016-12-8 14:30
+maxB --2016-12-8 14:30
 	made it take secret key from a file called secretdata.txt copy that file then once everyone has delete it from the repo. The file goes int he root directory
 
-peterS -- 2016-12-08 14:30
+stivenP -- 2016-12-08 14:30
      -Fixed navbar issue. 
      -Reformatted results.html 
           
-peterS -- 2016-12-08 24:30
+stivenP -- 2016-12-08 24:30
      -Added panel to results
      -Added color change functionality to results.html
      -Added font change functionality to results.html
 
-BertfieldM -- 2016-12-09 00:40
+maxB -- 2016-12-09 00:40
 -added get color functionality and fixed some minor bugs
 
-chengN -- 2016-12-09 01:26
+nicoleC -- 2016-12-09 01:26
     utilized secretdata for apikey
     song matches are now made with first tag only
     sorted song matches by track_rating to return "better songs"
     changed lyrics(L) to return a list of [title, artist, lyrics, coverart]
         side note: most songs do not have coverart :(
     added checks for empty lists and values
+    ** check for 'no person'
