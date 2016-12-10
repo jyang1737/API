@@ -86,3 +86,5 @@ nicoleC -- 2016-12-09 14:45
 yangJ -- 2016-12-09 14:51
     Webpage organization
     Broken pipes appear
+peterS -- 2016-12-10 14:45
+    -Fixed invert text functionality for results.html
