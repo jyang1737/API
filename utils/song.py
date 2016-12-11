@@ -36,24 +36,18 @@ def query(L):
 #print query(L)
 
 # parse json
-def get_id(query):
+def get_tracks(query):
     p = urllib2.urlopen(request(query)).read()
     d1 = json.loads(p)
-    #n = 0 # song number in list of matches
     d2 = d1['message']['body']['track_list']#[n]['track']
     d2 = sorted(d2, key=lambda k: k['track']['track_rating'])#['num_favourite'])
+    tracks = []
     n = len(d2)-1
-    d2 = d2[n]['track']
-    #print d2
-    rating = d2['track_rating']
-    name = d2['track_name']
-    id = d2['track_id']
-    artist = d2['artist_name']
-    coverart = d2['album_coverart_100x100']
-    #print name+str(id)+artist+coverart+str(rating)
-    return [id,name,artist,coverart]
-    #return name
-#print get_id(query(L))
+    end = n-10
+    while (n >= 0 and n >= end):
+        tracks.append(d2[n]['track']['track_id'])
+        n-=1
+    return tracks
 
 # get lyrics after search is done
 def get_lyrics(id):
@@ -71,8 +65,7 @@ def get_title(id):
     d = json.loads(p)
     d = d['message']['body']['track']['track_name']
     return d
-
-print get_title(15953433)
+#print get_title(15953433)
 
 def get_artist(id):
     u = "http://api.musixmatch.com/ws/1.1/track.get?apikey="+api()
@@ -81,8 +74,7 @@ def get_artist(id):
     d = json.loads(p)
     d = d['message']['body']['track']['artist_name']
     return d
-
-print get_artist(15953433)    
+#print get_artist(15953433)    
 
 '''
 # parse json
