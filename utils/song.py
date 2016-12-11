@@ -15,6 +15,59 @@ def request(k):
     return urllib2.Request(url+'&q_lyrics='+k+'&f_has_lyrics=1')
 
 #L = ['no person','pyrite','love','christmas','hack','day']
+# takes a list of tags, returns a list of track ids
+def get_tracks(tags):
+    tracks = []
+    n = 0
+    while(len(tracks) < 10):
+        if(tags[n]=="no person"):
+            n += 1
+        else:
+            p = urllib2.urlopen(request(tags[n])).read()
+            d1 = json.loads(p)
+            d2 = d1['message']['body']['track_list']
+            d2 = sorted(d2, key=lambda k: k['track']['track_rating'])
+            m = len(d2) - 1
+            end = m - 10
+            while (m >= 0 and m >= end and len(tracks) < 10):
+                tracks.append(d2[m]['track']['track_id'])
+                m -= 1
+            n += 1
+    return tracks
+    
+# get lyrics after search is done
+def get_lyrics(id):
+    u = "http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey="+api()
+    r = urllib2.Request(u+'&track_id='+str(id))#,data=None)
+    p = urllib2.urlopen(r).read()
+    d = json.loads(p)
+    d = d['message']['body']['lyrics']
+    return d['lyrics_body']
+
+def get_title(id):
+    u = "http://api.musixmatch.com/ws/1.1/track.get?apikey="+api()
+    r = urllib2.Request(u+'&track_id='+str(id))#,data=None)
+    p = urllib2.urlopen(r).read()
+    d = json.loads(p)
+    d = d['message']['body']['track']['track_name']
+    return d
+#print get_title(15953433)
+
+for i in get_tracks(["dammit","gargantuan","hhfkjhg","pyrite"]):
+    print get_title(i)
+
+def get_artist(id):
+    u = "http://api.musixmatch.com/ws/1.1/track.get?apikey="+api()
+    r = urllib2.Request(u+'&track_id='+str(id))#,data=None)
+    p = urllib2.urlopen(r).read()
+    d = json.loads(p)
+    d = d['message']['body']['track']['artist_name']
+    return d
+#print get_artist(15953433)    
+
+
+'''
+#L = ['no person','pyrite','love','christmas','hack','day']
 # returns the top valid tag
 def query(L):
     n = 0
@@ -51,38 +104,7 @@ def get_tracks(tags):
         n-=1
     return tracks
 
-# get lyrics after search is done
-def get_lyrics(id):
-    u = "http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey="+api()
-    r = urllib2.Request(u+'&track_id='+str(id))#,data=None)
-    p = urllib2.urlopen(r).read()
-    d = json.loads(p)
-    d = d['message']['body']['lyrics']
-    return d['lyrics_body']
 
-def get_title(id):
-    u = "http://api.musixmatch.com/ws/1.1/track.get?apikey="+api()
-    r = urllib2.Request(u+'&track_id='+str(id))#,data=None)
-    p = urllib2.urlopen(r).read()
-    d = json.loads(p)
-    d = d['message']['body']['track']['track_name']
-    return d
-#print get_title(15953433)
-
-#for i in get_tracks(["gargantuan","hhfkjhg","pyrite"]):
-#    print get_title(i)
-
-def get_artist(id):
-    u = "http://api.musixmatch.com/ws/1.1/track.get?apikey="+api()
-    r = urllib2.Request(u+'&track_id='+str(id))#,data=None)
-    p = urllib2.urlopen(r).read()
-    d = json.loads(p)
-    d = d['message']['body']['track']['artist_name']
-    return d
-#print get_artist(15953433)    
-
-
-'''
 def query(L):
     if(len(L)>4):
         L = L[0:4]

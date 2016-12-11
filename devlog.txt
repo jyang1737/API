@@ -100,3 +100,9 @@ nicoleC -- 2016-12-10 21:30
     query(L) modified to improve tag selection
         basic tag filtering
 	checks number of matches made by tags
+
+nicoleC -- 2016-12-10 22:02
+    merged query(L) and get_tracks(L) into get_tracks(tags)
+        takes a list of tags
+	returns list of ids of songs most relevant to songs
+	    now starts from first tag, and moves onto others until a list of 10 is formed
