@@ -17,17 +17,17 @@ def s():
     keywords = upload.getlist(image)
     colora= upload.getlistcolors(image)[0]
     colorb = upload.getlistcolors(image)[1]
-    listoftracks = get_tracks(tags)
+    listoftracks = song.get_tracks(tags)
     dictsongs = {}
     for ids in listoftracks:
-        dictsong[upload.get_title(ids)] = ids
+        dictsong[song.get_title(ids)] = ids
             
     return render_template("result.html", tags=keywords, back_color=colora, song_color=colorb, songdict = dictsong)
 
 
 @app.route("/s/<sid>")
 def songinfo(sid):
-    return render_template("song.html",lyrics= upload.get_lyrics(sid), title = upload.get_title(sid), artist = get_artist(sid)) 
+    return render_template("song.html",lyrics= song.get_lyrics(sid), title = song.get_title(sid), artist = song.get_artist(sid)) 
 
 @app.route("/about/")
 def about():
