@@ -1,35 +1,41 @@
 {% extends "navbar.html" %}
 {% block back_color %}
- <body style= "background-color: '{{back_color}}'" >
+ <body style= "background-color: '{{back_color}}' " >
 {% endblock %}
-
 {% block body %} 
 <div class="container">
   <div class="col-lg-12"
-       style="color: '{{ back_color }}';
+  style="color: '{{ back_color }}';
            -webkit-filter: invert(100%);
            filter: invert(100%);font-weight: bold">
-    <h1 class="page-header">{{ songname }}</h1>
-    <p> Live Song and Prosper has determined that your picture corresponds to the words: {{ tags }}.</p>
+    <h1 class="page-header"> You sent us a Picture of: {{ tags }}</h1>
+    <p> Live Song and Prosper has determined that your picture corresponds to the words: {{ tags }} .</p>
   </div> 
-</div> 
-<div class="container"> 
-  <div class="panel panel-default" style= "background-color: '{{song_color}}' ">
+</div>
+ 
+<div class="container">
+<div class="panel panel-default" style= "background-color: '{{song_color}}' ">
      <div class="panel-heading" 
-    		  style= "color: '{{ song_color }}';
-         	  -webkit-filter: invert(100%);
-         	  filter: invert(100%);align: center;">
-     {{ songname }} by {{ songartist }}
+           style="color: '{{ song_color }}';
+           -webkit-filter: invert(100%);
+           filter: invert(100%);font-weight: bold">
+            Songs 
 </div>
     <div class="panel-body">
-      <p>
-	<pre style = "color: '{{ song_color }}';
-		       -webkit-filter: invert(100%);
-		       filter: invert(100%);">
-	  	{{ songlyrics }}
-	</pre>
-      </p>
-    </div> 
-  </div> 
+<p style = "color: '{{ song_color }}';
+           -webkit-filter: invert(100%);
+           filter: invert(100%);">
+ <ul
+ style="list-style-image: url(../static/bullet.png); align: center">
+{% for title in songdict %}
+
+{% set song_link = '/s/' + songdict[title]|string %}
+<li><a href="{{song_link}}" > {{ title }} </a></li>
+{% endfor %}
+</ul>
+</p>
 </div>
-{% endblock %} 
+</div>
+</div>
+
+{% endblock %}
