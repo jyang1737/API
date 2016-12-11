@@ -93,3 +93,10 @@ stivenP -- 2016-12-10 14:45
 nicoleC -- 2016-12-10 20:36
     get_lyrics(id), get_title(id), get_artist(id)
 
+nicoleC -- 2016-12-10 21:30
+    get_tracks(L) returns a list of track ids of songs
+        sorted from highest to lowest rating
+	returns top 10 or fewer, depending on availability
+    query(L) modified to improve tag selection
+        basic tag filtering
+	checks number of matches made by tags

@@ -2,7 +2,6 @@
 
 import json, urllib, urllib2
 
-
 def api():
     file = open("secretdata.txt",'r')
     m = file.readline()
@@ -15,29 +14,32 @@ url="http://api.musixmatch.com/ws/1.1/track.search?apikey="+api()+"&format=json"
 def request(k):
     return urllib2.Request(url+'&q_lyrics='+k+'&f_has_lyrics=1')
 
-#L = ['christmas','hack','day']
+#L = ['no person','pyrite','love','christmas','hack','day']
+# returns the top valid tag
 def query(L):
-    #if(len(L)>4):
-    #    L = L[0:4]
-    #s = ''
-    #n = 0
-    #while n < len(L):
-    #    s += L[n]
-    #    if n < (len(L) - 1):
-    #        s += "%20"
-    #    n += 1
-    #return s
-    if (len(L)>0):
-        if(L[0]=="no person"):
-            return L[1]
-        return L[0]
+    n = 0
+    while(n<len(L)):
+        if(L[n]=="no person"):
+            n+=1
+        else:
+            p = urllib2.urlopen(request(L[n])).read()
+            d1 = json.loads(p)
+            d2 = d1['message']['body']['track_list']
+            #print len(d2)
+            if(len(d2)<10):
+                n+=1
+            else:
+                return L[n]
+    if (L[0]=="no person"):
+        return L[1]
     else:
-        return False
+        return L[0]
 #print query(L)
 
 # parse json
-def get_tracks(query):
-    p = urllib2.urlopen(request(query)).read()
+# takes a list of tags, returns a list of track ids
+def get_tracks(tags):
+    p = urllib2.urlopen(request(query(tags))).read()
     d1 = json.loads(p)
     d2 = d1['message']['body']['track_list']#[n]['track']
     d2 = sorted(d2, key=lambda k: k['track']['track_rating'])#['num_favourite'])
@@ -67,6 +69,9 @@ def get_title(id):
     return d
 #print get_title(15953433)
 
+#for i in get_tracks(["gargantuan","hhfkjhg","pyrite"]):
+#    print get_title(i)
+
 def get_artist(id):
     u = "http://api.musixmatch.com/ws/1.1/track.get?apikey="+api()
     r = urllib2.Request(u+'&track_id='+str(id))#,data=None)
@@ -76,7 +81,26 @@ def get_artist(id):
     return d
 #print get_artist(15953433)    
 
+
 '''
+def query(L):
+    if(len(L)>4):
+        L = L[0:4]
+    s = ''
+    n = 0
+    while n < len(L):
+        s += L[n]
+        if n < (len(L) - 1):
+            s += "%20"
+        n += 1
+    return s
+    if (len(L)>0):
+        if(L[0]=="no person"):
+            return L[1]
+        return L[0]
+    else:
+        return False
+
 # parse json
 def get_id(query):
     p = urllib2.urlopen(request(query)).read()
@@ -118,6 +142,8 @@ def get_title(L):
     song = get_id(query(L))
     m = song[1]
     return m
-'''
+
 #https://developer.musixmatch.com/documentation/rights-clearance-on-your-existing-catalog
 #https://developer.musixmatch.com/documentation/api-reference/tracking-url-get
+'''
+
