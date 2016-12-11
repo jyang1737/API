@@ -17,7 +17,7 @@ def s():
     keywords = upload.getlist(image)
     colora= upload.getlistcolors(image)[0]
     colorb = upload.getlistcolors(image)[1]
-    listoftracks = song.get_tracks(tags)
+    listoftracks = song.get_tracks(keywords)
     dictsongs = {}
     for ids in listoftracks:
         dictsong[song.get_title(ids)] = ids
