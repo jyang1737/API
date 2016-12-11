@@ -108,4 +108,7 @@ nicoleC -- 2016-12-10 22:02
 	    now starts from first tag, and moves onto others until a list of 10 is formed
 MaxB --2016-11-12 00:47
      made the flask work with nicoles newfucntions
-     
+peterS --2016-11-12 16:40
+	-Added song.html
+	-changed results.html
+	-Added bullet.png
