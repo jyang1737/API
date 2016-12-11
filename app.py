@@ -15,12 +15,19 @@ def s():
     search = request.form
     image = search["url"]
     keywords = upload.getlist(image)
-    lyrics = song.lyrics(keywords)
     colora= upload.getlistcolors(image)[0]
     colorb = upload.getlistcolors(image)[1]
-    name = song.get_title(keywords)
-    artist = song.get_artist(keywords)
-    return render_template("result.html", tags=keywords, songname=name, songartist=artist, songlyrics=lyrics, back_color=colora, song_color=colorb)
+    listoftracks = get_tracks(tags)
+    dictsongs = {}
+    for ids in listoftracks:
+        dictsong[upload.get_title(ids)] = ids
+            
+    return render_template("result.html", tags=keywords, , back_color=colora, song_color=colorb, songdict = dictsong)
+
+
+@app.route("/s/<sid>")
+def songinfo(sid):
+    return render_template("song.html",lyrics= upload.get_lyrics(sid), title = upload.get_title(sid), artist = get_artist(sid)) 
 
 @app.route("/about/")
 def about():
