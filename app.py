@@ -22,7 +22,7 @@ def s():
     for ids in listoftracks:
         dictsong[upload.get_title(ids)] = ids
             
-    return render_template("result.html", tags=keywords, , back_color=colora, song_color=colorb, songdict = dictsong)
+    return render_template("result.html", tags=keywords, back_color=colora, song_color=colorb, songdict = dictsong)
 
 
 @app.route("/s/<sid>")
