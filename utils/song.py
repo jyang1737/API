@@ -64,6 +64,47 @@ def get_lyrics(id):
     d = d['message']['body']['lyrics']
     return d['lyrics_body']
 
+def get_title(id):
+    u = "http://api.musixmatch.com/ws/1.1/track.get?apikey="+api()
+    r = urllib2.Request(u+'&track_id='+str(id))#,data=None)
+    p = urllib2.urlopen(r).read()
+    d = json.loads(p)
+    d = d['message']['body']['track']['track_name']
+    return d
+
+print get_title(15953433)
+
+def get_artist(id):
+    u = "http://api.musixmatch.com/ws/1.1/track.get?apikey="+api()
+    r = urllib2.Request(u+'&track_id='+str(id))#,data=None)
+    p = urllib2.urlopen(r).read()
+    d = json.loads(p)
+    d = d['message']['body']['track']['artist_name']
+    return d
+
+print get_artist(15953433)    
+
+'''
+# parse json
+def get_id(query):
+    p = urllib2.urlopen(request(query)).read()
+    d1 = json.loads(p)
+    #n = 0 # song number in list of matches
+    d2 = d1['message']['body']['track_list']#[n]['track']
+    d2 = sorted(d2, key=lambda k: k['track']['track_rating'])#['num_favourite'])
+    n = len(d2)-1
+    d2 = d2[n]['track']
+    #print d2
+    rating = d2['track_rating']
+    name = d2['track_name']
+    id = d2['track_id']
+    artist = d2['artist_name']
+    coverart = d2['album_coverart_100x100']
+    #print name+str(id)+artist+coverart+str(rating)
+    return [id,name,artist,coverart]
+    #return name
+#print get_id(query(L))
+
 # returns song lyrics
 def lyrics(L):
     if(query(L)==False):
@@ -85,6 +126,6 @@ def get_title(L):
     song = get_id(query(L))
     m = song[1]
     return m
-
+'''
 #https://developer.musixmatch.com/documentation/rights-clearance-on-your-existing-catalog
 #https://developer.musixmatch.com/documentation/api-reference/tracking-url-get

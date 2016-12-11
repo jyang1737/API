@@ -83,8 +83,12 @@ nicoleC -- 2016-12-09 14:45
     list check for 'no person' tag
     get_artist(L), get_title(L), cleaned up song.py
     
-yangJ -- 2016-12-09 14:51
+jamesY -- 2016-12-09 14:51
     Webpage organization
     Broken pipes appear
-peterS -- 2016-12-10 14:45
-    -Fixed invert text functionality for results.html
+    
+stivenP -- 2016-12-10 14:45
+    Fixed invert text functionality for results.html
+
+nicoleC -- 2016-12-10 20:36
+    get_lyrics(id), get_title(id), get_artist(id)
