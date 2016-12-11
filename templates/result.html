@@ -8,8 +8,15 @@
   style="color: '{{ back_color }}';
            -webkit-filter: invert(100%);
            filter: invert(100%);font-weight: bold">
-    <h1 class="page-header"> You sent us a Picture of: {{ tags }}</h1>
-    <p> Live Song and Prosper has determined that your picture corresponds to the words: {{ tags }} .</p>
+    <h1 class="page-header"> You sent us a Picture of: {{ tags[0] }}</h1>
+    <p> Live Song and Prosper has determined that your picture corresponds to the words: 
+     {% set taglist = "" %}
+     {% for tag in tags %}
+     {% set taglist = "," + tag %}
+     {% endfor %}
+     {{ taglist[1:] }}
+     
+     .</p>
   </div> 
 </div>
  
