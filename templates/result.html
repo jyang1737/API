@@ -1,27 +1,23 @@
 {% extends "navbar.html" %}
 {% block back_color %}
- <body style= "background-color: '{{back_color}}' " >
+ <body style= "background-color: {{back_color}} " >
 {% endblock %}
 {% block body %} 
 <div class="container">
   <div class="col-lg-12"
-  style="color: '{{ back_color }}';
+  style="color: {{ back_color }};
            -webkit-filter: invert(100%);
            filter: invert(100%);font-weight: bold">
-    <h1 class="page-header"> You sent us a Picture of: {{ tags[0] }}</h1>
+    <h1 class="page-header"> You sent us a Picture of: {{ tags[0] }}, {{tags[1]}}</h1>
     <p> Live Song and Prosper has determined that your picture corresponds to the words: 
-     {% set taglist = "" %}
-     {% for tag in tags %}
-     {% set taglist = "," + tag %}
-     {% endfor %}
-     {{ taglist[1:] }}
+     {{ tags|join(", ") }}
      
      .</p>
   </div> 
 </div>
  
 <div class="container">
-<div class="panel panel-default" style= "background-color: '{{song_color}}' ">
+<div class="panel panel-default" style= "background-color: {{song_color}} ">
      <div class="panel-heading" 
            style="color: '{{ song_color }}';
            -webkit-filter: invert(100%);
@@ -29,14 +25,14 @@
             Songs 
 </div>
     <div class="panel-body">
-<p style = "color: '{{ song_color }}';
+<p style = "color: {{ song_color }};
            -webkit-filter: invert(100%);
            filter: invert(100%);">
  <ul
  style="list-style-image: url(../static/bullet.png); align: center">
 {% for title in songdict %}
 
-{% set song_link = '/s/' + songdict[title]|string %}
+{% set song_link = '/s/' + songdict[title]|string +'?back_color=' + back_color + '&song_color='+ song_color%}
 <li><a href="{{song_link}}" > {{ title }} </a></li>
 {% endfor %}
 </ul>

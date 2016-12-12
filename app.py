@@ -25,9 +25,11 @@ def s():
     return render_template("result.html", tags=keywords, back_color=colora, song_color=colorb, songdict = dictsong)
 
 
-@app.route("/s/<sid>")
+@app.route("/s/<sid>", methods=["GET"])
 def songinfo(sid):
-    return render_template("song.html",lyrics= song.get_lyrics(sid), title = song.get_title(sid), artist = song.get_artist(sid)) 
+    backcolor = request.args["back_color"]
+    songcolor = request.args["song_color"]
+    return render_template("song.html",lyrics= song.get_lyrics(sid), title = song.get_title(sid), artist = song.get_artist(sid), back_color = backcolor, song_color = songcolor) 
 
 @app.route("/about/")
 def about():

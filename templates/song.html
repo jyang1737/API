@@ -1,12 +1,12 @@
 {% extends "navbar.html" %}
 {% block back_color %}
- <body style= "background-color: '{{back_color}}'" >
+ <body style= "background-color: {{back_color}}" >
 {% endblock %}
 
 {% block body %} 
 <div class="container">
   <div class="col-lg-12"
-       style="color: '{{ back_color }}';
+       style="color: {{ back_color }};
            -webkit-filter: invert(100%);
            filter: invert(100%);font-weight: bold">
     <h1 class="page-header">{{ title }}</h1>
@@ -14,7 +14,7 @@
   </div> 
 </div> 
 <div class="container"> 
-  <div class="panel panel-default" style= "background-color: '{{song_color}}' ">
+  <div class="panel panel-default" style= "background-color: {{song_color}} ">
      <div class="panel-heading" 
           style= "color: '{{ song_color }}';
             -webkit-filter: invert(100%);
@@ -23,7 +23,7 @@
 </div>
     <div class="panel-body">
       <p>
-  <pre style = "color: '{{ song_color }}';
+  <pre style = "color: {{ song_color }};
            -webkit-filter: invert(100%);
            filter: invert(100%);">
       {{ lyrics }}
