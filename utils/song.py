@@ -53,8 +53,8 @@ def get_title(id):
     return d
 #print get_title(15953433)
 
-for i in get_tracks(["dammit","gargantuan","hhfkjhg","pyrite"]):
-    print get_title(i)
+#for i in get_tracks(["gargantuan","hhfkjhg","pyrite"]):
+#    print get_title(i)
 
 def get_artist(id):
     u = "http://api.musixmatch.com/ws/1.1/track.get?apikey="+api()
