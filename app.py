@@ -13,7 +13,7 @@ def main():
 @app.route("/s/", methods=["POST"])
 def s():
     search = request.form
-    image = search["url"]
+    image = search["URL"]
     keywords = upload.getlist(image)
     colora= upload.getlistcolors(image)[0]
     colorb = upload.getlistcolors(image)[1]
