@@ -32,7 +32,7 @@
  style="list-style-image: url(../static/bullet.png); align: center">
 {% for title in songdict %}
 
-{% set song_link = '/s/' + songdict[title]|string +'?back_color=' + back_color + '&song_color='+ song_color%}
+{% set song_link = '/s/' + songdict[title]|string +'?back_color=' + back_color[1:] + '&song_color='+ song_color[1:]%}
 <li><a href="{{song_link}}" > {{ title }} </a></li>
 {% endfor %}
 </ul>
