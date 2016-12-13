@@ -112,3 +112,5 @@ peterS --2016-11-12 16:40
 	-Added song.html
 	-changed results.html
 	-Added bullet.png
+MaxB & StivenP --2016-12-12 15:40
+     -got colors working between pages and fixed bugs
