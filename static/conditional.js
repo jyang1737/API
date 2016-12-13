@@ -15,10 +15,12 @@ $( document ).ready(function() {
 			
 			if (value == 'upload'){
 				upload.removeClass('hidden');	
+				$('#live_form input[name="URL"]').val("");
 				submit.removeClass('hidden');							
 			}
 			else if (value == 'URL'){
 				url.removeClass('hidden');
+				$('#live_form input[name="upload"]').val("");
 				submit.removeClass('hidden');	
 			}		
 		});	
