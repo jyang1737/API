@@ -8,7 +8,7 @@ app.secret_key = 'ajfkdsjflkasd'
 @app.route("/")
 @app.route("/home/")
 def main():
-    return render_template("main.html")
+    return render_template("form_v2.html")
 
 @app.route("/s/", methods=["POST"])
 def s():
