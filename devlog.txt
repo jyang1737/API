@@ -115,8 +115,13 @@ stivenP -- 2016-12-11 16:40
     changed results.html
     Added bullet.png
 
+maxB & stivenP -- 2016-12-12 15:40
+    got colors working between pages and fixed bugs
+
 nicoleC -- 2016-12-12 21:33
     rewrote get_tracks(tags) to select more relevant songs
         clumps tags together for more refined search
     load_tracks(query) to test search results for availability
     deleted unnecessary comments
+
+

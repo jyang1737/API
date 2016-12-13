@@ -1,35 +1,35 @@
 {% extends "navbar.html" %}
 {% block back_color %}
- <body style= "background-color: {{back_color}}" >
-{% endblock %}
+<body style= "background-color: {{back_color}}" >
+  {% endblock %}
 
-{% block body %} 
-<div class="container">
-  <div class="col-lg-12"
-       style="color: {{ back_color }};
-           -webkit-filter: invert(100%);
-           filter: invert(100%);font-weight: bold">
-    <h1 class="page-header">{{ title }}</h1>
-    <p> You've Picked: {{title}} .</p>
-  </div> 
-</div> 
-<div class="container"> 
-  <div class="panel panel-default" style= "background-color: {{song_color}} ">
-     <div class="panel-heading" 
-          style= "color: '{{ song_color }}';
-            -webkit-filter: invert(100%);
-            filter: invert(100%);align: center;">
-     {{ title }} by {{ artist }}
-</div>
-    <div class="panel-body">
-      <p>
-  <pre style = "color: {{ song_color }};
-           -webkit-filter: invert(100%);
-           filter: invert(100%);">
-      {{ lyrics }}
-  </pre>
-      </p>
+  {% block body %} 
+  <div class="container">
+    <div class="col-lg-12"
+	 style="color: {{ back_color }};
+		-webkit-filter: invert(100%);
+		filter: invert(100%);font-weight: bold">
+      <h1 class="page-header">{{ title }}</h1>
+      <p> You've Picked: {{title}} .</p>
     </div> 
   </div> 
-</div>
-{% endblock %} 
+  <div class="container"> 
+    <div class="panel panel-default" style= "background-color: {{song_color}} ">
+      <div class="panel-heading" 
+           style= "color: '{{ song_color }}';
+		   -webkit-filter: invert(100%);
+		   filter: invert(100%);align: center;">
+	{{ title }} by {{ artist }}
+      </div>
+      <div class="panel-body">
+	<p>
+	  <pre style = "color: {{ song_color }};">
+			<!-- -webkit-filter: invert(1 00%);
+			filter: invert(100%);">-->
+	    {{ lyrics }}
+	  </pre>
+	</p>
+      </div> 
+    </div> 
+  </div>
+  {% endblock %} 

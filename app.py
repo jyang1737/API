@@ -27,8 +27,8 @@ def s():
 
 @app.route("/s/<sid>", methods=["GET"])
 def songinfo(sid):
-    backcolor = request.args["back_color"]
-    songcolor = request.args["song_color"]
+    backcolor = "#" + request.args.get("back_color")
+    songcolor = "#" + request.args.get("song_color")
     return render_template("song.html",lyrics= song.get_lyrics(sid), title = song.get_title(sid), artist = song.get_artist(sid), back_color = backcolor, song_color = songcolor) 
 
 @app.route("/about/")
