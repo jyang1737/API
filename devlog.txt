@@ -53,10 +53,10 @@ jamesY -- 2016-12-08 00:30
     Primitive version of website working
     Takes image url for now, will attempt to change later on
 
-maxB -- 2015-12-8 00:43
+maxB -- 2015-12-08 00:43
     The POST request is not working yet, but i have written a bunch of functions so that it is almost there. Need post for local images.
 
-maxB --2016-12-8 14:30
+maxB --2016-12-08 14:30
     made it take secret key from a file called secretdata.txt copy that file then once everyone has delete it from the repo. The file goes in the root directory
 
 stivenP -- 2016-12-08 14:30
@@ -106,9 +106,17 @@ nicoleC -- 2016-12-10 22:02
         takes a list of tags
 	returns list of ids of songs most relevant to songs
 	    now starts from first tag, and moves onto others until a list of 10 is formed
-MaxB --2016-11-12 00:47
+	    
+maxB -- 2016-12-11 00:47
      made the flask work with nicoles newfucntions
-peterS --2016-11-12 16:40
-	-Added song.html
-	-changed results.html
-	-Added bullet.png
+
+stivenP -- 2016-12-11 16:40
+    Added song.html
+    changed results.html
+    Added bullet.png
+
+nicoleC -- 2016-12-12 21:33
+    rewrote get_tracks(tags) to select more relevant songs
+        clumps tags together for more refined search
+    load_tracks(query) to test search results for availability
+    deleted unnecessary comments
