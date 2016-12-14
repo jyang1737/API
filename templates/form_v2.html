@@ -1,12 +1,16 @@
 {% extends "navbar.html" %}
 {% block head %}
-	<head>
-		<script src="../static/jquery.min.js"></script>
-         <script src="../static/bootstrap.min.js"></script> 
-		<script src="../static/conditional.js"></script>		
-		<link href="../static/bootstrap.min.css" rel="stylesheet">
-
-	</head>
+<head>
+<meta charset= "utf-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+    <title>Live Song and Prosper</title>
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="../static/jquery.min.js"></script>
+    <script src="../static/bootstrap.min.js"></script>   
+   <script src="../static/conditional.js"></script>		
+</head>
 {% endblock %}
 {% block body %}	 
 	<!-- HTML Form (wrapped in an isolated Bootstrap 3 div) -->
