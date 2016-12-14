@@ -127,4 +127,7 @@ peterS -- 2016-12-13 18:20
 	-formatted form_v2
 	-changed fonts and colors
 	-Added reset functionality to form
-
+	-Added descriptions to about page
+peterS -- 2016-12-15 17:00
+	-Added Favicon
+	-Changed form_v2 formatting
