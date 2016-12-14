@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang = "en">
-	{% block head %} 
   <head> 
     <meta charset= "utf-8">
     <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
@@ -9,9 +8,10 @@
     <link href="../static/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <script src="../static/jquery.min.js"></script>
-    <script src="../static/bootstrap.min.js"></script>    
+    <script src="../static/bootstrap.min.js"></script>   
+	{$ block javascript %}
+	{% endblock %}
   </head>
-{% endblock %}
 {% block back_color %}
    <body style="background-color:deepskyblue" style="font-family: verdana, arial;font-weight: bold;">
 {% endblock %}
