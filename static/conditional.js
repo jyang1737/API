@@ -6,7 +6,7 @@ $( document ).ready(function() {
 		//Wrappers for all fields
 		var upload = $('#form_upload input[name="upload"]').parent();
 		var url = $('#form_URL input[name="URL"]').parent();
-		var all=upload.add(url);
+		var all= upload.add(url);
 		
 		pictype.change(function(){
 			var value=this.value;						
