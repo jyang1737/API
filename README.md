@@ -16,6 +16,7 @@ Note:
 ## Instalation
    1. start a virtual enviroment with flask installed
    2. $ python app.py   
+   
 ## Known Bugs: 
 
 
