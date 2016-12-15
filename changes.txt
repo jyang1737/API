@@ -7,3 +7,9 @@ Front-End Changes:
 		  Reason: This stops bad urls and images from breaking the app
 	-Song List and Each Song has background colors that correspond to the image
 		Reason: It was another application of the Clairifai API
+Back-End Changes
+	- links were changed form /s/searchquery to just /s/ and from /s/<SONGNAME> to /s/<songname>
+	- Album art was abandoned
+	- Url was added as an option for getting iamges
+	- python files were added to support the uplaoding of files
+	-Color features were added to generate colors from images
