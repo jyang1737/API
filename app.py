@@ -3,7 +3,7 @@ import urllib2, os
 from utils import song, upload
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '/static'
+UPLOAD_FOLDER = 'static'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 
@@ -11,14 +11,18 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = 'ajfkdsjflkasd'
 
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 @app.route("/")
 @app.route("/home/")
 def main():
-    return render_template("form_v2.html")
+    return render_template("main.html")
 
 @app.route("/s/", methods=["POST"])
 def s():
-    if 'file' not in request.files:
+    print request.files
+    if 'upload' not in request.files:
         search = request.form
         image = search["URL"]
         try:
@@ -27,25 +31,33 @@ def s():
             return render_template("error.html")
         colora= upload.getlistcolors(image)[0]
         colorb = upload.getlistcolors(image)[1]
-
     else:
-        file = request.files['file']
-        if file.filename == '':
-            return render_template("error.html")
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))       
+        print 'upload sucess'
+        try:
+            filename = upload_file(request.files)
             keywords = upload.getlistlocal(filename)
             colora= upload.getlistlocalcolors(filename)[0]
             colorb = upload.getlistlocalcolors(filename)[1]
-    
+        except urllib2.HTTPError:
+            return render_template("error.html")
+        
     listoftracks = song.get_tracks(keywords)
     dictsong = {}
     for ids in listoftracks:
         dictsong[song.get_title(ids)] = ids
         
     return render_template("result.html", tags=keywords, back_color=colora, song_color=colorb, songdict = dictsong)
-
+def upload_file(r):
+    file = r['upload']
+    filename = "james.jpg"
+    if file.filename == '':
+        return render_template("error.html")
+    try:
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    except IOError:
+        return render_template("error.html")
+    return filename
 @app.route("/s/<sid>", methods=["GET"])
 def songinfo(sid):
     backcolor = "#" + request.args.get("back_color")
@@ -60,4 +72,4 @@ def about():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run()
+    app.run(threaded=True)
