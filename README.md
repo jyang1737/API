@@ -18,5 +18,7 @@ Note:
    2. $ python app.py   
    
 ## Known Bugs: 
-
+   Sometimes and unreproducibly, a broken pipe error will occur. To fix this, resart the flask app and reload the page. We were unable to isolate the cause of this error
+   
+   If a file is over 16mb, it redirects to a blank page. Press back to go to the homepage and reuplaod a smaller file 
 
