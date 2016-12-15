@@ -2,7 +2,7 @@
 
 ## Live Song and Prosper
 
- ### This site takes your images and returns a song about them. Perfect for the bar-mitzvah slide show or the ideal musical birthday card. 
+### This site takes your images and returns a song about them. Perfect for the bar-mitzvah slide show or the ideal musical birthday card. 
 
 How it Works: <br>
    1. A user either upload an image or pastes a link to an image from the home page. <br>
