@@ -33,10 +33,16 @@
 {% for title in songdict %}
 
 {% set song_link = '/s/' + songdict[title]|string +'?back_color=' + back_color[1:] + '&song_color='+ song_color[1:]%}
-<li><a href="{{song_link}}" > {{ title }} </a></li>
+<li><a href="{{song_link}}" style=" 
+            color: {{ song_color }};
+           -webkit-filter: invert(100%);
+           filter: invert(100%);"> 
+{{ title }} 
+       </a>
+  </li>
 {% endfor %}
 </ul>
-</p>
+     </p>
 </div>
 </div>
 </div>
