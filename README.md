@@ -10,8 +10,10 @@
    
 A secret key file called secretdata.txt needs to be stored in the root directory. Contact a developer if you wish to obtain this file.   
    
-Note:
-   To make upload functionality work, we used the poster module to encode file data. The files are included in utils, so not pip is neccessary.
+### Note:
+To make upload functionality work, we used the poster module to encode file data. The files are included in utils, so not pip is neccessary.
+   
+Full lyrics for every song are not always availble, as the copyright varies from song to song.
    
 ## Instalation
    1. start a virtual enviroment with flask installed
@@ -22,4 +24,4 @@ Note:
    
    If a file is over 16mb, it redirects to a blank page. Press back to go to the homepage and reuplaod a smaller file 
 
-   Full lyrics do not always print out, as the copyright varies from song to song
+   
