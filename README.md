@@ -22,3 +22,4 @@ Note:
    
    If a file is over 16mb, it redirects to a blank page. Press back to go to the homepage and reuplaod a smaller file 
 
+   Full lyrics do not always print out, as the copyright varies from song to song
