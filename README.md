@@ -1,4 +1,3 @@
-# API
 
 ## Live Song and Prosper
 
@@ -9,7 +8,11 @@ How it Works: <br>
    2. The user is either redirected to an error page or to a page, with background colors similiar to the ones in the image, that lists the words correspodning to the image and songs that contained such words. <br>
    3. The user can click on each song to view the author and lyrics of each song. <br>
    
-   
+A secret key file called secretdata.txt needs to be stored in the root directory. Contact a developer if you wish to obtain this file.   
    
 Note:
    To make upload functionality work, we used the poster module to encode file data. The files are included in utils, so not pip is neccessary.
+   
+# Known Bugs: 
+
+
