@@ -4,9 +4,8 @@ $( document ).ready(function() {
 		var pictype = $('#live_form input:radio[name=pictype]');
 		
 		//Wrappers for all fields
-		var upload = $('#live_form input[name="upload"]').parent();
-		var url = $('#live_form input[name="URL"]').parent();
-		var submit = $('#live_form button[name="submit"]').parent();
+		var upload = $('#form_upload input[name="upload"]').parent();
+		var url = $('#form_URL input[name="URL"]').parent();
 		var all=upload.add(url);
 		
 		pictype.change(function(){
@@ -14,14 +13,15 @@ $( document ).ready(function() {
 			all.addClass('hidden'); //hide everything and reveal as needed
 			
 			if (value == 'upload'){
-				upload.removeClass('hidden');	
+				url.addClass('hidden');
 				$('#live_form input[name="URL"]').val("");
-				submit.removeClass('hidden');							
+				upload.removeClass('hidden');	
 			}
 			else if (value == 'URL'){
-				url.removeClass('hidden');
+				upload.addClass('hidden');
 				$('#live_form input[name="upload"]').val("");
-				submit.removeClass('hidden');	
+				url.removeClass('hidden');
+
 			}		
 		});	
 });
