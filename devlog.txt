@@ -131,3 +131,6 @@ peterS -- 2016-12-13 18:20
 peterS -- 2016-12-15 17:00
 	-Added Favicon
 	-Changed form_v2 formatting
+maxB -- 2016-12-15 18:00
+	-Now doen't crash when a bad url is inputted
+	-Created error.html
