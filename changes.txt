@@ -1,0 +1,10 @@
+
+Front-End: 
+	-Navbar only has home and about page
+		Reason: It made more sense design wise to have the user input from the main page
+	-Home page allows user to upload an image or link to an image
+		  Reason: Users are not forced to download and upload an image
+	-An invalid input redirects the user to an error page
+		  Reason: This stops bad urls and images from breaking the app
+	-Song List and Each Song has background colors that correspond to the image
+		Reason: It was another application of the Clairifai API
