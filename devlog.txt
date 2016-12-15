@@ -136,6 +136,7 @@ maxB -- 2016-12-15 18:00
 	-Created error.html
 peterS -- 2016-12-14 23:00
 	-Created two forms for upload and url
+	-changed udnerlines and href colors
 maxB -- 2016-12-15 20:00
 	-Now doen't crash ever (fixed broken pipe)
 	-Now upload works
