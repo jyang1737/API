@@ -10,7 +10,7 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = 'ajfkdsjflkasd'
-#app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
@@ -50,7 +50,10 @@ def s():
                 colorb= d[1]
         except urllib2.HTTPError:
             return render_template("error.html")
-        os.remove("static/" + filename)
+        try:
+            os.remove("static/" + filename)
+        except OSError:
+            return render_template("error.html")
     listoftracks = song.get_tracks(keywords)
     dictsong = {}
     for ids in listoftracks:

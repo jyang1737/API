@@ -34,8 +34,11 @@ def getlistlocal(filename):
     path = "static/" + filename
     url = "https://api.clarifai.com/v1/tag/"
     fields = {}
-    f = open(path)
-    f2 = f
+    try:
+        f = open(path)
+        f2 = f
+    except IOError:
+        return ['error']
     fields = {'encoded_data':f}
     data,headers = multipart_encode(fields)
     headers['User-Agent'] = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
@@ -53,8 +56,11 @@ def getlistlocalcolors(filename):
     path = "static/" + filename
     url = "https://api.clarifai.com/v1/color/"
     fields = {}
-    f = open(path)
-    f2 = f
+    try:
+        f = open(path)
+        f2 = f
+    except IOError:
+        return ['#000000']
     fields = {'encoded_data':f}
     data,headers = multipart_encode(fields)
     headers['User-Agent'] = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
