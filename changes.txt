@@ -1,5 +1,4 @@
-
-Front-End: 
+Front-End Changes: 
 	-Navbar only has home and about page
 		Reason: It made more sense design wise to have the user input from the main page
 	-Home page allows user to upload an image or link to an image
