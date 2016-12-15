@@ -11,5 +11,5 @@ How it Works: <br>
    
    
    
-   Note:
-   to make upload functionality work, we used the poster module to encode file data. The files are included in utils, so not pip is neccessary.
+Note:
+   To make upload functionality work, we used the poster module to encode file data. The files are included in utils, so not pip is neccessary.
