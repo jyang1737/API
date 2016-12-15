@@ -10,7 +10,7 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = 'ajfkdsjflkasd'
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+#app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
@@ -29,15 +29,25 @@ def s():
             keywords = upload.getlist(image)
         except urllib2.HTTPError:
             return render_template("error.html")
-        colora= upload.getlistcolors(image)[0]
-        colorb = upload.getlistcolors(image)[1]
+        d = upload.getlistcolors(image)
+        if len(d) < 2:
+            colora = d[0]
+            colorb = "#000000"
+        else:
+            colora= d[0]
+            colorb= d[1]
     else:
         print 'upload sucess'
         try:
             filename = upload_file(request.files)
             keywords = upload.getlistlocal(filename)
-            colora= upload.getlistlocalcolors(filename)[0]
-            colorb = upload.getlistlocalcolors(filename)[1]
+            d = upload.getlistlocalcolors(filename)
+            if len(d) < 2:
+                colora = d[0]
+                colorb = "#000000"
+            else:
+                colora= d[0]
+                colorb= d[1]
         except urllib2.HTTPError:
             return render_template("error.html")
         os.remove("static/" + filename)
