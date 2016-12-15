@@ -40,7 +40,7 @@ def s():
             colorb = upload.getlistlocalcolors(filename)[1]
         except urllib2.HTTPError:
             return render_template("error.html")
-        
+        os.remove("static/" + filename)
     listoftracks = song.get_tracks(keywords)
     dictsong = {}
     for ids in listoftracks:
