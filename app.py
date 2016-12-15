@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect
-
+import urllib2
 from utils import song, upload
 
 app = Flask(__name__)
@@ -14,7 +14,10 @@ def main():
 def s():
     search = request.form
     image = search["URL"]
-    keywords = upload.getlist(image)
+    try:
+        keywords = upload.getlist(image)
+    except urllib2.HTTPError:
+        return render_template("error.html")
     colora= upload.getlistcolors(image)[0]
     colorb = upload.getlistcolors(image)[1]
     listoftracks = song.get_tracks(keywords)
