@@ -1,4 +1,6 @@
 import json, urllib2, urllib, os, mimetypes, tempfile, httplib, formdata
+from encode import multipart_encode
+from streaminghttp import register_openers
 
 def getlist(path):
     key = getkey()
@@ -24,22 +26,44 @@ def getlistcolors(path):
     d = json.loads(r)
     return [d['results'][0]['colors'][0]['w3c']['hex'], d['results'][0]['colors'][1]['w3c']['hex']]
 
-def getlistlocal(path,filename):
+def getlistlocal(filename):
     key = getkey()
+    register_openers()
+    path = "static/" + filename
     url = "https://api.clarifai.com/v1/tag/"
     fields = {}
-    f = open(path,'r')
-    f2 = f.read()
-    files= {'encoded_data':{'filename': filename, 'content' :f2}}
-    print files
-    data, headers = formdata.encode_multipart(fields,files)
-    # contnet
-    # register_openers()
+    f = open(path)
+    f2 = f
+    fields = {'encoded_data':f}
+    data,headers = multipart_encode(fields)
+    headers['User-Agent'] = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
     request = urllib2.Request(url, data=data, headers=headers)
     request.add_header('Authorization','Bearer ' + key)
+    request.unverifiable = True
     r = urllib2.urlopen(request)
     q = r.read()
-    return q
+    d = json.loads(q)
+    return d['results'][0]['result']['tag']['classes']
+
+def getlistlocalcolors(filename):
+    key = getkey()
+    register_openers()
+    path = "static/" + filename
+    url = "https://api.clarifai.com/v1/color/"
+    fields = {}
+    f = open(path)
+    f2 = f
+    fields = {'encoded_data':f}
+    data,headers = multipart_encode(fields)
+    headers['User-Agent'] = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
+    request = urllib2.Request(url, data=data, headers=headers)
+    request.add_header('Authorization','Bearer ' + key)
+    request.unverifiable = True
+    r = urllib2.urlopen(request)
+    q = r.read()
+    d = json.loads(q)
+    return [d['results'][0]['colors'][0]['w3c']['hex'], d['results'][0]['colors'][1]['w3c']['hex']]
+
 
 def getkey():
     f = open('secretdata.txt', 'r')

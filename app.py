@@ -1,8 +1,14 @@
 from flask import Flask, render_template, request, url_for, redirect
-import urllib2
+import urllib2, os
 from utils import song, upload
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = '/static'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = 'ajfkdsjflkasd'
 
 @app.route("/")
@@ -12,21 +18,33 @@ def main():
 
 @app.route("/s/", methods=["POST"])
 def s():
-    search = request.form
-    image = search["URL"]
-    try:
-        keywords = upload.getlist(image)
-    except urllib2.HTTPError:
-        return render_template("error.html")
-    colora= upload.getlistcolors(image)[0]
-    colorb = upload.getlistcolors(image)[1]
+    if 'file' not in request.files:
+        search = request.form
+        image = search["URL"]
+        try:
+            keywords = upload.getlist(image)
+        except urllib2.HTTPError:
+            return render_template("error.html")
+        colora= upload.getlistcolors(image)[0]
+        colorb = upload.getlistcolors(image)[1]
+
+    else:
+        file = request.files['file']
+        if file.filename == '':
+            return render_template("error.html")
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))       
+            keywords = upload.getlistlocal(filename)
+            colora= upload.getlistlocalcolors(filename)[0]
+            colorb = upload.getlistlocalcolors(filename)[1]
+    
     listoftracks = song.get_tracks(keywords)
     dictsong = {}
     for ids in listoftracks:
         dictsong[song.get_title(ids)] = ids
-            
+        
     return render_template("result.html", tags=keywords, back_color=colora, song_color=colorb, songdict = dictsong)
-
 
 @app.route("/s/<sid>", methods=["GET"])
 def songinfo(sid):
@@ -36,7 +54,7 @@ def songinfo(sid):
 
 @app.route("/about/")
 def about():
-    return render_template("about.html")
+    return render_template("about.html") 
 
 
 
